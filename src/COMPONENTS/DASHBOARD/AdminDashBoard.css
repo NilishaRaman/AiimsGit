@@ -1,0 +1,124 @@
+/* Container to ensure proper spacing
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+} */
+
+/* Ensure the sidebar takes up the full height and sticks to the left */
+/* .side-navbar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 250px; 
+    background-color: #dae2ea;
+    color: #fff;
+    padding-top: 20px;
+} */
+
+/* Sidebar content */
+/* .side-navbar .sidebar-header {
+    padding: 20px;
+    text-align: center;
+} */
+
+/* .side-navbar .sidebar-header .avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+} */
+
+/* .side-navbar .sidebar-header .title h1 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+} */
+
+/* Content area */
+/* .col-lg-10 {
+    margin-left: 250px; 
+    padding-top: 20px;
+}
+
+/* Main Content Header */
+/* .content-inner {
+    padding: 20px;
+} */
+
+/* CKEditor specific styling */
+/* .ck-editor__editable {
+    min-height: 400px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}  */
+
+/* Loading content message */
+/* .loading-content {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
+    color: #666;
+} */
+
+/* Ensure the CKEditor has proper padding and margin */
+/* .ck-editor {
+    margin-top: 20px;
+    padding: 15px;
+} */
+
+/* Make sure the Navbar and Sidebar are properly styled */
+/* .navbar {
+    background-color: #007bff;
+    padding: 15px;
+} */
+
+/* Navbar Items */
+/* .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffc107;
+} */
+
+/* Remove any additional margin for the navbar toggle */
+/* .navbar-toggler {
+    border: none;
+} */
+
+/* Media Queries for Responsive Layout */
+/* @media (max-width: 991px) {
+    .side-navbar {
+        width: 200px; 
+    }
+
+    .col-lg-10 {
+        margin-left: 0;
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .col-lg-10 {
+        margin-left: 0;
+        padding: 10px;
+    }
+} */
+
+
+.ck.ck-editor{
+    padding: 0 20px;
+}
+
+.ck.ck-editor__main > .ck-editor__editable:not(.ck-focused){
+    max-height: 68vh;
+}
+
+.content-area{
+    padding-top: 56px;
+    padding-bottom: 60px;
+}

@@ -1,0 +1,56 @@
+/* Ensure the navbar is below the header */
+/* Make the whole page a flex container */
+/* .d-flex.flex-column {
+    display: flex;
+     min-height: 0vh; Ensure full height of the viewport 
+    flex-direction: column;
+} */
+
+
+
+/* Keep the footer at the bottom */
+/* footer {
+    background-color: #1e7a76;
+    color: white;
+    padding: 20px 0;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    position: relative; 
+    margin-top: 20px; 
+} */
+
+/* 
+.header-navbar-wrapper {
+    padding-top: 0; 
+} */
+
+
+
+.bgcolor{
+    background-color: #1e7a76;
+}
+
+/* Allow the content area to grow */
+.UserDashboard {
+    padding-top: 70px;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+
+/* .navbar-nav {
+    display: flex;
+    flex-direction: row; 
+    list-style: none;
+    margin: auto;
+    padding: auto;
+} */
+
+
+/* footer{
+
+    bottom: 0;
+} */

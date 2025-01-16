@@ -1,0 +1,23 @@
+ul li a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 7px;
+    transition: all 0.3s ease; 
+    border: 1px solid transparent; 
+    border-radius: 5px;
+}
+
+ ul li a:hover {
+    background-color: #7eb8f2; 
+    border: 1px solid #007bff; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.outside-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.inside-container{
+    max-height: calc(100vh - 120px);
+}

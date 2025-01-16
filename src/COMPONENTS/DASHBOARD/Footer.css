@@ -1,0 +1,29 @@
+.cdca_logo{
+    height: 35px !important;
+}
+
+.footer-container {
+    position: relative;
+    background-color: #f8f9fa; /* Set your desired footer background */
+    padding: 20px 0;
+    height: 60px;
+}
+
+.cdac_logo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 35px;
+    margin: 10px; /* Adjust spacing as needed */
+}
+
+.text-lg-right {
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+.text-lg-left {
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+

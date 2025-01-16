@@ -1,0 +1,179 @@
+/* Navbar container styling *//* Scoped Navbar Styles */
+.custom-navbar {
+  margin-top: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #1e7a76;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  transition: background-color 0.3s ease;
+}
+
+.custom-navbar:hover {
+  background-color: #15675c;
+}
+
+/* Navbar links container */
+.custom-navbar .navbar-nav {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.custom-navbar .navbar-nav-right {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+/* Navbar link styling */
+.custom-navbar .nav-link {
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+/* Dropdown menu */
+.custom-navbar .dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  list-style-type: none;
+  padding: 0;
+  background-color: #1e7a76;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+/* Show the dropdown when hovering or active */
+.custom-navbar .dropdown-menu.show {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.custom-navbar .dropdown-menu li a {
+  color: white;
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+/* Position submenus to the right of their parent */
+.custom-navbar .dropdown-menu-left {
+  left: 100%;
+}
+
+.custom-navbar .dropdown-menu-right {
+  right: 100%;
+}
+
+/* Ensure deep nested menus don't overflow */
+.custom-navbar .dropdown-menu li .dropdown-menu {
+  left: 100%;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  display: block;
+  z-index: 2;
+  transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.custom-navbar .dropdown-menu li .dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+  z-index: 2;
+}
+
+/* Responsive Navbar Styling */
+@media (max-width: 992px) {
+  /* Make the navbar items stack vertically on smaller screens */
+  .custom-navbar .navbar-nav {
+    display: none; /* Hide the navbar links initially */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  /* Display the hamburger menu */
+  .custom-navbar .navbar-toggler {
+    display: block;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* Show navbar links when the navbar is toggled */
+  .custom-navbar .navbar-nav.show {
+    display: flex;
+  }
+
+  /* Adjust dropdown for mobile screens */
+  .custom-navbar .dropdown-menu {
+    position: static;
+    width: 100%; /* Make the dropdown take full width */
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .custom-navbar .dropdown-menu-left,
+  .custom-navbar .dropdown-menu-right {
+    left: 0;
+    right: 0;
+  }
+}
+
+/* For small screens, make sure the navbar container padding and alignment are adjusted */
+@media (max-width: 576px) {
+  .custom-navbar {
+    padding: 8px 10px;
+  }
+
+  .custom-navbar .nav-link {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .custom-navbar .navbar-nav-right {
+    display: none; /* Hide right-aligned items on very small screens */
+  }
+
+  .custom-navbar .menu-button {
+    display: block;
+    color: #1e7a76;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+/* Footer container */
+/* .footer {
+  position: relative;
+  bottom: 0; 
+  left: 0; 
+  width: 100%; 
+  background-color:  #1e7a76; 
+  color: white; 
+  padding: 20px 0; 
+  font-size: 14px; 
+  text-align: center;
+  z-index: 1000; 
+  margin-top: auto; 
+} */
+
+/* Adjusting the row to allow the footer content to stay compact */
+/* .footer .row {
+  display: flex;
+  justify-content: space-around; 
+  flex-wrap: wrap; 
+  padding: 0 20px;
+  margin: 0;
+} */
+
+/* Footer section (column) styling */
+/* .footer .col-md-4 {
+  width: 100%; 
+  max-width: 30%; 
+  box-sizing: border-box;
+  margin-bottom: 15px; 
+} */
+
+/* Footer headings */
+/* .footer h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: white;
+} */
+
+/* Links styling in the third footer region */
+/* .region-footer-third a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.region-footer-third a:hover {
+  text-decoration: underline;
+} */
+
+/* Paragraph styling */
+/* .region-footer-first p,
+.region-footer-second p {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #ddd; 
+} */
+
+/* Styling for visitor counter */
+/* .counterimg {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%; 
+} */
+
+/* Responsive styles for smaller screens */
+/* @media (max-width: 768px) {
+  .footer .col-md-4 {
+    width: 100%; 
+    max-width: 100%;
+  }
+
+  .footer h2 {
+    font-size: 16px; 
+  }
+
+  .footer p {
+    font-size: 12px; 
+  }
+} */
