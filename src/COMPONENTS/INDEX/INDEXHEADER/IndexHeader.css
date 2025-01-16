@@ -137,8 +137,14 @@
 
 .custom-btn:active,
 .custom-btn:focus {
-  background-color: #176a64; /* Darker shade of #1e7a76 */
+  background-color: #094743; /* Darker shade of #1e7a76 */
   border-color: #176a64;
 }
 
+.custom-btn:hover
+{
+  background-color: #e4f0ef !important; /* Darker shade of #1e7a76 */
+  border-color: #176a64 !important;
+  color: rgb(19, 0, 0) !important;
+}
 

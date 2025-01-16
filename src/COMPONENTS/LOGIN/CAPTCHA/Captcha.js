@@ -59,7 +59,8 @@ const CAPTCHA = ({ onCaptchaGenerated }) => {
       <div className="d-flex justify-content-center align-items-center">
         <canvas ref={canvasRef} className="border border-secondary rounded"></canvas>
         <button
-          className="btn btn-secondary ms-3"
+        type='button'
+          className="btn btn-secondary ms-3 mt-0"
           onClick={() => generateCaptchaText()}
           aria-label="Refresh CAPTCHA"
         >

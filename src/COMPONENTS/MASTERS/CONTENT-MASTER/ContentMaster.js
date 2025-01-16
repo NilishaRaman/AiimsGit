@@ -9,6 +9,7 @@ const ContentMaster = () => {
     const editorRef = useRef(null); // Reference to the textarea
     const [formData, setFormData] = useState({
         menu_id: "",
+        parent_id: "",
         description: "",
         content: "",
         enableDates: false,
@@ -28,10 +29,11 @@ const ContentMaster = () => {
 
     const [menuOptions, setMenuOptions] = useState([]);
 
+    const [parentMenuName, setParentMenuName] = useState("");
     // Function to fetch menu options
     const fetchMenus = () => {
         axios
-            .get("http://10.226.25.102:8080/api/menus")
+            .get("http://localhost:8080/api/menus")
             .then((response) => {
                 const data = response.data;
                 console.log("Response data: ", data);
@@ -39,7 +41,7 @@ const ContentMaster = () => {
                     const menuOptionData = data.map((item) => ({
                         id: item.menu_id,
                         name: item.menu_name,
-                        parent: item.parent ? item.parent.menu_name : "No Parent",
+                        parent_id: item.parent_id,
                     }));
                     setMenuOptions(menuOptionData);
                 } else {
@@ -136,16 +138,25 @@ const ContentMaster = () => {
                 setFormData((prevFormData) => ({
                     ...prevFormData,
                     menu_id: selectedMenu.id,
-                   
+                    parent_id: selectedMenu.parent_id,
                 }));
                 console.log("Selected Menu: ", selectedMenu);
+
+                const parentMenu = menuOptions.find((menu) => menu.id === selectedMenu.parent_id);
+
+                if (parentMenu) {
+                    setParentMenuName(parentMenu.name);
+                }
+                else {
+                    setParentMenuName("Top Level");
+                }
                 axios
-                    .get(`http://10.226.25.102:8080/api/content/${selectedMenu.id}`)
+                    .get(`http://localhost:8080/api/content/${selectedMenu.id}`)
                     .then((response) => {
                         const contentData = response.data;
 
                         const formatToDateInput = (isoDate) => {
-                            if(!isoDate) return null;
+                            if (!isoDate) return null;
 
                             return new Date(isoDate).toISOString().split("T")[0];
                         }
@@ -158,7 +169,7 @@ const ContentMaster = () => {
                         console.log("Data fetched for Ckeditor: ", contentData);
                         setFormData((prevFormData) => ({
                             ...prevFormData,
-                            to_date:formatToDateInput(contentData.to_date) || null,
+                            to_date: formatToDateInput(contentData.to_date) || null,
                             from_date: formatToDateInput(contentData.from_date) || null,
                             enableDates: contentData.enableDates || false,
                             content: contentData.content || "",
@@ -221,7 +232,7 @@ const ContentMaster = () => {
         }
 
         const formatDate = (dateString) => {
-            if(!dateString) {
+            if (!dateString) {
                 return null;
             }
             const date = new Date(dateString);
@@ -238,7 +249,7 @@ const ContentMaster = () => {
         console.log("Form data to be sent:", updatedFormData);
 
         axios
-            .post("http://10.226.25.102:8080/api/content/save", updatedFormData)
+            .post("http://localhost:8080/api/content/save", updatedFormData)
             .then((response) => {
                 alert("Menu updated successfully!");
                 console.log("Menu updated successfully:", response.data);
@@ -258,6 +269,7 @@ const ContentMaster = () => {
                             <h2 className="menu_heading font-weight-bold">Content Master</h2>
 
                             <Form onSubmit={handleSubmit}>
+                                {/* MENU ID AND MENU NAME DROPDOWN */}
                                 <Form.Group controlId="menu_id">
                                     <Form.Label className="fw-bold">Menu Name</Form.Label>
                                     <Form.Control
@@ -273,6 +285,29 @@ const ContentMaster = () => {
                                                 {item.id} {item.name}
                                             </option>
                                         ))}
+                                    </Form.Control>
+                                </Form.Group>
+
+                                <Form.Group>
+                                    <Form.Label className="fw-bold">Parent Name: </Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        value={parentMenuName}
+                                        readOnly
+                                    />
+
+                                </Form.Group>
+
+                                {/* PARENT ID AUTO FILL READONLY  */}
+                                <Form.Group>
+                                    <Form.Label className="fw-bold">Parent ID:</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        className="form-control"
+                                        value={formData.parent_id || ""}
+                                        readOnly
+                                    >
+
                                     </Form.Control>
                                 </Form.Group>
 
