@@ -62,6 +62,10 @@ function Index() {
         onLanguageChange={handleLanguageChange} 
         onSearchChange={handleSearchChange} 
       />
+      <IndexHeader 
+        onLanguageChange={handleLanguageChange} 
+        onSearchChange={handleSearchChange} 
+      />
       <IndexNavbar isHindi={isHindi} onContentChange={updateContentData} />
       <Routes>
         <Route path="/" element={<Home isHindi={isHindi} searchQuery={searchQuery} />} />
