@@ -33,7 +33,7 @@ const ContentMaster = () => {
     // Function to fetch menu options
     const fetchMenus = () => {
         axios
-            .get("http://localhost:8080/api/menus")
+            .get("http://10.226.25.102:8080/api/menus")
             .then((response) => {
                 const data = response.data;
                 console.log("Response data: ", data);
@@ -151,7 +151,7 @@ const ContentMaster = () => {
                     setParentMenuName("Top Level");
                 }
                 axios
-                    .get(`http://localhost:8080/api/content/${selectedMenu.id}`)
+                    .get(`http://10.226.25.102:8080/api/content/${selectedMenu.id}`)
                     .then((response) => {
                         const contentData = response.data;
 
@@ -249,7 +249,7 @@ const ContentMaster = () => {
         console.log("Form data to be sent:", updatedFormData);
 
         axios
-            .post("http://localhost:8080/api/content/save", updatedFormData)
+            .post("http://10.226.25.102:8080/api/content/save", updatedFormData)
             .then((response) => {
                 alert("Menu updated successfully!");
                 console.log("Menu updated successfully:", response.data);
