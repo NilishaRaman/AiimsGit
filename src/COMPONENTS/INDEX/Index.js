@@ -27,7 +27,7 @@
 
 // export default Index;
 
-import React, { useState } from "react";  
+import React, { useState } from "react";
 import IndexHeader from "./INDEXHEADER/IndexHeader";
 import IndexNavbar from "./INDEXNAVBAR/IndexNavbar";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -35,7 +35,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../INDEX/Index.css';
 import Home from "./HOME/Home";
 import MenuContent from "./INDEXNAVBAR/MenuContent";
-import { Route, Routes } from "react-router-dom"; 
+import { Route, Routes } from "react-router-dom";
 
 function Index() {
   const [isHindi, setIsHindi] = useState(false);
@@ -44,11 +44,11 @@ function Index() {
 
   const handleLanguageChange = (language) => {
     const isHindiSelected = language === 'Hindi';
-    setIsHindi(isHindiSelected); 
+    setIsHindi(isHindiSelected);
   };
 
   const updateContentData = (data) => {
-    setContentData(data); 
+    setContentData(data);
   };
 
   const handleSearchChange = (query) => {
@@ -58,11 +58,14 @@ function Index() {
 
   return (
     <div className="container-fluid">
-      <IndexHeader 
-        onLanguageChange={handleLanguageChange} 
-        onSearchChange={handleSearchChange} 
+      <IndexHeader
+        onLanguageChange={handleLanguageChange}
+        onSearchChange={handleSearchChange}
       />
-    
+      <IndexHeader
+        onLanguageChange={handleLanguageChange}
+        onSearchChange={handleSearchChange}
+      />
       <IndexNavbar isHindi={isHindi} onContentChange={updateContentData} />
       <Routes>
         <Route path="/" element={<Home isHindi={isHindi} searchQuery={searchQuery} />} />
