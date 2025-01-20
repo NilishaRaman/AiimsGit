@@ -4,10 +4,47 @@ import React, { useState, useEffect } from "react"; // Importing necessary hooks
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../INDEXHEADER/IndexHeader.css';
+import SearchBar from "../SEARCHCOMPONENT/SearchBar";
+import axios from "axios";
+import { useSearch } from "../SEARCHCOMPONENT/SearchContext";
+import { Link } from "react-router-dom";
+
+
+
 
 const IndexHeader = ({ onLanguageChange }) => {
+
+  // This if for implementing the search functionality
+  const { searchTerm, setSearchTerm } = useSearch();
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [contentData,setContentData] =  useState([])
+
   // Get the language from localStorage if available, default to 'English'
   const [language, setLanguage] = useState(localStorage.getItem('language') || 'English');
+
+  // for fetching the data of content of all the pages
+  useEffect(()=> {
+    axios
+    .get("http://localhost:8080/api/content/all")
+    .then((response) =>{
+      console.log("cONTENT DATA: ",response.data);
+      setContentData(response.data);
+    })
+    .catch((e) => {
+      console.error("Error fetching the data: ", e);
+    })
+
+    if(searchTerm) {
+      const results  = contentData.filter(item => 
+        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.content.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      setFilteredResults(results);
+    }
+    else{
+      setFilteredResults([])
+    }
+  },[searchTerm]);
 
   // Save language to localStorage and notify parent component whenever it changes
   useEffect(() => {
@@ -48,20 +85,24 @@ const IndexHeader = ({ onLanguageChange }) => {
         >
           English
         </button>
-
-
-
-        {/* Search input and button */}
-
-        {/* <div className="input-group mt-3">
-          <input type="search" id="form1" className="form-control form-control-sm" />
-          <button type="button" className="btn btn-primary input-group-text" data-mdb-ripple-init>
-            <i className="fas fa-search"></i>
-          </button>
-        </div> */}
-
-
-
+        <br /><br />
+        <SearchBar />
+        <div>
+        <h3>Search Results:</h3>
+        {filteredResults.length > 0 ? (
+          <ul>
+            {filteredResults.map(result => (
+              <li key={result.id}>
+                <Link to={`/${result.name.toLowerCase().replace(/ /g, '-')}`}>
+                  {result.name}
+                </Link>: {result.description}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No results found</p>
+        )}
+      </div>
 
 
       </div>
